@@ -285,7 +285,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 591422886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1787095836966823694, guid: c82918fe5bf3a29479fd95e21bc2fb4b,
+          type: 3}
+        m_MethodName: LoadSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &591422886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +537,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1075399833}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1787095836966823694, guid: c82918fe5bf3a29479fd95e21bc2fb4b,
+          type: 3}
+        m_MethodName: LoadSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1075399833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,7 +735,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1563147063}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1787095836966823694, guid: c82918fe5bf3a29479fd95e21bc2fb4b,
+          type: 3}
+        m_MethodName: LoadHowToPlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1563147063
 MonoBehaviour:
   m_ObjectHideFlags: 0
