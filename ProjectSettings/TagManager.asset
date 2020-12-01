@@ -7,6 +7,9 @@ TagManager:
   - Rock
   - Paper
   - Scissors
+  - Knight
+  - Alien
+  - Samurai
   layers:
   - Default
   - TransparentFX
