@@ -11,8 +11,8 @@ public class BattleStoryController : MonoBehaviour
     Hero playerHero;
     Hero enemyHero;
 
-    public GameObject playerPrefab;
-    public GameObject enemyPrefab;
+    public GameObject[] playerPrefab = new GameObject[3];
+    public GameObject[] enemyPrefab = new GameObject[3];
 
     public Transform playerLocation;
     public Transform enemyLocation;
@@ -41,9 +41,23 @@ public class BattleStoryController : MonoBehaviour
         playerButtons.SetActive(false);
         enemyButtons.SetActive(false);
 
+        // SETUP PLAYER
+        string playerChar = PlayerPrefs.GetString("playerChar");
+        string enemyChar = PlayerPrefs.GetString("enemyChar");
+        int playerIndex = 0;
+        int enemyIndex = 0;
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (playerPrefab[i].tag == playerChar)
+            {
+                playerIndex = i;
+            }
+        }
+
         // INSTANTIATE PLAYER
-        GameObject playerGO = Instantiate(playerPrefab, playerLocation);
-        GameObject enemyGO = Instantiate(enemyPrefab, enemyLocation);
+        GameObject playerGO = Instantiate(playerPrefab[playerIndex], playerLocation);
+        GameObject enemyGO = Instantiate(enemyPrefab[enemyIndex], enemyLocation);
         playerHero = playerGO.GetComponent<Hero>();
         enemyHero = enemyGO.GetComponent<Hero>();
         // MANAGE HUD
@@ -61,8 +75,6 @@ public class BattleStoryController : MonoBehaviour
     public void HandleClick()
     {
         string selectedMove = EventSystem.current.currentSelectedGameObject.tag;
-        Debug.Log(selectedMove);
-
         // PLAYER TURN
         if (state == BattleState.PLAYERTURN && playerTurnCount != 3)
         {
@@ -73,24 +85,29 @@ public class BattleStoryController : MonoBehaviour
             {
                 state = BattleState.ENEMYTURN;
                 playerButtons.SetActive(false);
-                enemyButtons.SetActive(true);
                 playerTurnCount = 0;
+                StartCoroutine(GetEnemyMoves());
             }
         }
-        else if (state == BattleState.ENEMYTURN && enemyTurnCount != 3)
+    }
+
+    IEnumerator GetEnemyMoves()
+    {
+        for (int i = 0; i < 3; i++)
         {
-            enemyMoves[enemyTurnCount] = selectedMove;
+            string[] moves = { "Rock", "Paper", "Scissors" };
+            int randomMove = Random.Range(0, 3);
+            enemyMoves[enemyTurnCount] = moves[randomMove];
             enemyTurnCount += 1;
-
-            if (enemyTurnCount == 3)
-            {
-                enemyButtons.SetActive(false);
-                enemyTurnCount = 0;
-                StartCoroutine(StandOff());
-            }
         }
-        // ENEMY TURN
 
+        if (enemyTurnCount == 3)
+        {
+            enemyTurnCount = 0;
+            print("ENEMY IS THINKING...");
+            yield return new WaitForSeconds(3f);
+            StartCoroutine(StandOff());
+        }
     }
 
 
@@ -130,6 +147,7 @@ public class BattleStoryController : MonoBehaviour
             // ANNOUNCE WHAT HAPPENED
 
             // UPDATE HUD
+            print($"{player} VS {enemy}");
             yield return new WaitForSeconds(0.4f);
             playerHUD.SetHP(playerHero.currentHealth);
             enemyHUD.SetHP(enemyHero.currentHealth);
