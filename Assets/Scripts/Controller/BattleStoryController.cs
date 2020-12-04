@@ -8,6 +8,7 @@ public class BattleStoryController : MonoBehaviour
 {
     public BattleState state;
 
+    public int currentRound = 1;
     Hero playerHero;
     Hero enemyHero;
 
@@ -29,8 +30,11 @@ public class BattleStoryController : MonoBehaviour
     int playerTurnCount = 0;
     int enemyTurnCount = 0;
 
+    AudioSource audioFX;
+    public AudioClip attackFX;
     void Start()
     {
+        audioFX = gameObject.GetComponent<AudioSource>();
         StartCoroutine(SetupGame());
     }
 
@@ -70,9 +74,12 @@ public class BattleStoryController : MonoBehaviour
         playerButtons.SetActive(true);
     }
 
-
-    // PLAYER AND ENEMY TURN
     public void HandleClick()
+    {
+        StartCoroutine(Click());
+    }
+    // PLAYER AND ENEMY TURN
+    public IEnumerator Click()
     {
         string selectedMove = EventSystem.current.currentSelectedGameObject.tag;
         // PLAYER TURN
@@ -84,6 +91,7 @@ public class BattleStoryController : MonoBehaviour
             if (playerTurnCount == 3)
             {
                 state = BattleState.ENEMYTURN;
+                yield return new WaitForSeconds(0.5f);
                 playerButtons.SetActive(false);
                 playerTurnCount = 0;
                 StartCoroutine(GetEnemyMoves());
@@ -155,11 +163,13 @@ public class BattleStoryController : MonoBehaviour
             if (playerHero.currentHealth <= 0)
             {
                 StartCoroutine(AnnounceResult(BattleState.LOST, "YOU LOSE!"));
+                enemyHUD.addRoundWon();
                 break;
             }
             else if (enemyHero.currentHealth <= 0)
             {
                 StartCoroutine(AnnounceResult(BattleState.WON, "YOU WIN!"));
+                playerHUD.addRoundWon();
                 break;
             }
 
@@ -181,31 +191,55 @@ public class BattleStoryController : MonoBehaviour
     void FullDamage(Hero targetHero, int damage)
     {
         targetHero.TakeDamage(damage);
+        audioFX.PlayOneShot(attackFX);
     }
 
     void TwentyDamage(Hero targetHero, int damage)
     {
         targetHero.TakeDamage(damage);
+        audioFX.PlayOneShot(attackFX);
     }
 
     void BothDamage(int damage)
     {
         playerHero.TakeDamage(damage);
         enemyHero.TakeDamage(damage);
+        audioFX.PlayOneShot(attackFX);
     }
 
     IEnumerator AnnounceResult(BattleState finalState, string resultMsg)
     {
         state = finalState;
-        EndBattle();
         print(resultMsg);
         yield return new WaitForSeconds(2f);
+        EndBattle();
     }
 
     void EndBattle()
     {
-        Destroy(playerButtons);
-        Destroy(enemyButtons);
+        playerButtons.SetActive(false);
+        playerHero.ResetHealth();
+        enemyHero.ResetHealth();
+
+        state = BattleState.SETUP;
+        if (playerHUD.roundWonCount == 2)
+        {
+            playerHUD.displayRoundWon();
+            enemyHUD.displayRoundWon();
+            print("YOU WIN.BATTLE END");
+        }
+        else if (enemyHUD.roundWonCount == 2)
+        {
+            playerHUD.displayRoundWon();
+            enemyHUD.displayRoundWon();
+            print("YOU LOSE.BATTLE END");
+        }
+        else
+        {
+            playerHUD.displayRoundWon();
+            enemyHUD.displayRoundWon();
+            StartCoroutine(SetupGame());
+        }
     }
 
     void Update()
