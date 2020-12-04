@@ -29,4 +29,9 @@ public class Hero : MonoBehaviour
 
         return (int)((critDmg + normalDmg) * percentage);
     }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
 }
