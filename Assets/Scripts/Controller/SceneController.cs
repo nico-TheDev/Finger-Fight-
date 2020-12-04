@@ -7,6 +7,7 @@ public class SceneController : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public GameObject[] characters = new GameObject[2];
     public void LoadMenu()
     {
         SceneManager.LoadScene("MenuScene");
@@ -41,12 +42,20 @@ public class SceneController : MonoBehaviour
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
+        foreach (GameObject character in characters)
+        {
+            character.SetActive(false);
+        }
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+        foreach (GameObject character in characters)
+        {
+            character.SetActive(true);
+        }
     }
 
     public void QuitGame()
