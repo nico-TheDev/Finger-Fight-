@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c18697a422e81984baca04387eb3f6cb
+guid: f3e0c224f5a1be348bd68c72f83efc43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2630103879223297161
-    second: Samurai_Portrait_0
+      213: -9042028117199634284
+    second: Back Button_0
+  - first:
+      213: -6738241475738720160
+    second: Back Button_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Samurai_Portrait_0
+      name: Back Button_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 618
-        height: 1363
+        y: 190
+        width: 320
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +119,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9844b731b81008420800000000000000
-      internalID: 2630103879223297161
+      spriteID: 490c8398553448280800000000000000
+      internalID: -9042028117199634284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back Button_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 320
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0682acb1415fc72a0800000000000000
+      internalID: -6738241475738720160
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: c18697a422e81984baca04387eb3f6cb
+guid: 8c89c66fc539b9d4bb15a3ce339cb4d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2630103879223297161
-    second: Samurai_Portrait_0
+      213: 62126053121805971
+    second: Quit Button_0
+  - first:
+      213: -6767624193770541962
+    second: Quit Button_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Samurai_Portrait_0
+      name: Quit Button_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 618
-        height: 1363
+        y: 190
+        width: 320
+        height: 110
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +119,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9844b731b81008420800000000000000
-      internalID: 2630103879223297161
+      spriteID: 39e4f9fe057bcd000800000000000000
+      internalID: 62126053121805971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Quit Button_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 320
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ca7f4f6a19412a0800000000000000
+      internalID: -6767624193770541962
       vertices: []
       indices: 
       edges: []

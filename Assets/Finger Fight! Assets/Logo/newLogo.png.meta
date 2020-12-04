@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: c18697a422e81984baca04387eb3f6cb
+guid: ff818a8a435c542488527dc4e0128551
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2630103879223297161
-    second: Samurai_Portrait_0
+      213: -6539650775832193585
+    second: newLogo_0
+  - first:
+      213: -9186885625386498246
+    second: newLogo_1
+  - first:
+      213: -6316239848559258614
+    second: newLogo_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,7 +55,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 41, y: 154, z: 35, w: 46}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -102,13 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Samurai_Portrait_0
+      name: newLogo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 618
-        height: 1363
+        x: 50
+        y: 170
+        width: 540
+        height: 438
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +122,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9844b731b81008420800000000000000
-      internalID: 2630103879223297161
+      spriteID: fc51a67944e7e35a0800000000000000
+      internalID: -6539650775832193585
       vertices: []
       indices: 
       edges: []
