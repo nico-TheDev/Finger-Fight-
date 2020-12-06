@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
 
+
         if (instance == null)
         {
             instance = this;
@@ -33,6 +34,8 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        // RESETS PROGRESS EVERYIME PLAYER QUITS
+        PlayerPrefs.SetInt("currentStage", 0);
         Play("MenuScene");
     }
     public void Play(string name)
