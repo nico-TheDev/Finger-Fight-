@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
@@ -9,6 +10,7 @@ public class BattleStoryController : MonoBehaviour
     public BattleState state;
 
     public int currentRound = 1;
+    public int currentStage;
     Hero playerHero;
     Hero enemyHero;
 
@@ -24,6 +26,9 @@ public class BattleStoryController : MonoBehaviour
     public GameObject playerButtons;
     public GameObject enemyButtons;
 
+    GameObject playerGO;
+    GameObject enemyGO;
+    // SET IT TO PRIVATE IN PROD
     public string[] playerMoves = new string[3];
     public string[] enemyMoves = new string[3];
 
@@ -32,10 +37,48 @@ public class BattleStoryController : MonoBehaviour
 
     AudioSource audioFX;
     public AudioClip attackFX;
+
+    public Image background;
+    public Sprite[] stages = new Sprite[3];
+
+    public SceneController scene;
+
     void Start()
     {
         audioFX = gameObject.GetComponent<AudioSource>();
+        // Save the current progress of the player
+        SetupStage();
         StartCoroutine(SetupGame());
+    }
+
+    void SetupStage()
+    {
+        currentStage = PlayerPrefs.GetInt("currentStage");
+
+        FindObjectOfType<AudioManager>().StopAll();
+
+        // KNIGHT
+        if (currentStage == 0)
+        {
+            PlayerPrefs.SetString("enemyChar", "Knight");
+            FindObjectOfType<AudioManager>().Play("KnightStage");
+            background.sprite = stages[currentStage];
+        }
+        // SAMURAI
+        else if (currentStage == 1)
+        {
+            PlayerPrefs.SetString("enemyChar", "Samurai");
+            FindObjectOfType<AudioManager>().Play("SamuraiStage");
+            background.sprite = stages[currentStage];
+        }
+        // ALIEN
+        else if (currentStage == 2)
+        {
+            PlayerPrefs.SetString("enemyChar", "Alien");
+            FindObjectOfType<AudioManager>().Play("AlienStage");
+            background.sprite = stages[currentStage];
+        }
+
     }
 
     IEnumerator SetupGame()
@@ -59,11 +102,23 @@ public class BattleStoryController : MonoBehaviour
             }
         }
 
+        for (int i = 0; i < 3; i++)
+        {
+            if (enemyPrefab[i].tag == enemyChar)
+            {
+                enemyIndex = i;
+            }
+        }
+
         // INSTANTIATE PLAYER
-        GameObject playerGO = Instantiate(playerPrefab[playerIndex], playerLocation);
-        GameObject enemyGO = Instantiate(enemyPrefab[enemyIndex], enemyLocation);
-        playerHero = playerGO.GetComponent<Hero>();
-        enemyHero = enemyGO.GetComponent<Hero>();
+        if (playerGO == null && enemyGO == null)
+        {
+
+            playerGO = Instantiate(playerPrefab[playerIndex], playerLocation);
+            enemyGO = Instantiate(enemyPrefab[enemyIndex], enemyLocation);
+            playerHero = playerGO.GetComponent<Hero>();
+            enemyHero = enemyGO.GetComponent<Hero>();
+        }
         // MANAGE HUD
 
         playerHUD.SetHUD(playerHero);
@@ -227,30 +282,24 @@ public class BattleStoryController : MonoBehaviour
             playerHUD.displayRoundWon();
             enemyHUD.displayRoundWon();
             print("YOU WIN.BATTLE END");
+            currentStage += 1;
+            PlayerPrefs.SetInt("currentStage", currentStage);
+            scene.LoadVersus();
         }
         else if (enemyHUD.roundWonCount == 2)
         {
             playerHUD.displayRoundWon();
             enemyHUD.displayRoundWon();
             print("YOU LOSE.BATTLE END");
+            currentStage += 1;
+            PlayerPrefs.SetInt("currentStage", currentStage);
+            scene.LoadVersus();
         }
         else
         {
             playerHUD.displayRoundWon();
             enemyHUD.displayRoundWon();
             StartCoroutine(SetupGame());
-        }
-    }
-
-    void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playerHero.currentHealth -= 50;
-            playerHUD.SetHP(playerHero.currentHealth);
-            enemyHero.currentHealth -= 50;
-            enemyHUD.SetHP(enemyHero.currentHealth);
         }
     }
 }
