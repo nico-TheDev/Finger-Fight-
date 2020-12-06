@@ -5,9 +5,10 @@ using UnityEngine.EventSystems;
 
 public class CharacterSelectController : MonoBehaviour
 {
-    public void SelectCharacter(){
+    public void SelectCharacter()
+    {
         string selected = EventSystem.current.currentSelectedGameObject.tag;
-        PlayerPrefs.SetString("playerChar",selected);
-        PlayerPrefs.SetString("CutsceneState","intro");
+        PlayerPrefs.SetString("playerChar", selected);
+        PlayerPrefs.SetString("CutsceneState", "intro");
     }
 }

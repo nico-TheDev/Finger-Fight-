@@ -5,16 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-
     public GameObject pausePanel;
     public GameObject[] characters = new GameObject[2];
+
     public void LoadMenu()
     {
         SceneManager.LoadScene("MenuScene");
+        FindObjectOfType<AudioManager>().Play("MenuScene");
     }
     public void LoadSelect()
     {
         SceneManager.LoadScene("CharacterSelectScene");
+        FindObjectOfType<AudioManager>().Play("CharacterSelectScene");
+
     }
     public void LoadSelectPVP()
     {
