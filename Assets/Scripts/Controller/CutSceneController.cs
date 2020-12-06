@@ -11,12 +11,15 @@ public class CutSceneController : MonoBehaviour
 
     public Button button;
 
+    public GameObject clickMe;
+
     // Start is called before the first frame update
     void Start()
     {
         // Alien 
         // Knight
         // Samurai
+        clickMe.SetActive(false);
         button.enabled = false;
         Image btnImage = button.GetComponent<Image>();
         string currentState = PlayerPrefs.GetString("CutsceneState");
@@ -40,9 +43,11 @@ public class CutSceneController : MonoBehaviour
 
     IEnumerator Activate()
     {
-        yield return new WaitForSeconds(5f);
+        // CHANGE TIME ON PROD
+        yield return new WaitForSeconds(1f);
         print("CLICK TO CONTINUE");
         button.enabled = true;
+        clickMe.SetActive(true);
 
     }
 }
