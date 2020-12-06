@@ -38,6 +38,14 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("StoryScene");
     }
 
+    public void LoadVersus()
+    {
+        SceneManager.LoadScene("VersusScene");
+        FindObjectOfType<AudioManager>().StopAll();
+        FindObjectOfType<AudioManager>().Play("VersusScene");
+
+    }
+
     public void LoadHowToPlay()
     {
         SceneManager.LoadScene("HowToPlayScene");
