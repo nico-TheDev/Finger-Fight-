@@ -11,11 +11,13 @@ public class SceneController : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene("MenuScene");
+        FindObjectOfType<AudioManager>().StopAll();
         FindObjectOfType<AudioManager>().Play("MenuScene");
     }
     public void LoadSelect()
     {
         SceneManager.LoadScene("CharacterSelectScene");
+        FindObjectOfType<AudioManager>().StopAll();
         FindObjectOfType<AudioManager>().Play("CharacterSelectScene");
 
     }
