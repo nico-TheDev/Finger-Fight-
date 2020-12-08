@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CutSceneController : MonoBehaviour
 {
@@ -11,16 +12,27 @@ public class CutSceneController : MonoBehaviour
 
     public Button button;
 
-    public GameObject clickMe;
+    public GameObject Continue;
 
-    // Start is called before the first frame update
-    void Start()
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLoad;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLoad;
+    }
+
+    void OnLoad(Scene scene, LoadSceneMode mode)
+    {
+        Setup();
+    }
+    void Setup()
     {
         // Alien 
         // Knight
         // Samurai
-        clickMe.SetActive(false);
-        button.enabled = false;
         Image btnImage = button.GetComponent<Image>();
         string currentState = PlayerPrefs.GetString("CutsceneState");
         string playerChar = PlayerPrefs.GetString("playerChar");
@@ -46,8 +58,6 @@ public class CutSceneController : MonoBehaviour
         // CHANGE TIME ON PROD
         yield return new WaitForSeconds(1f);
         print("CLICK TO CONTINUE");
-        button.enabled = true;
-        clickMe.SetActive(true);
 
     }
 }
