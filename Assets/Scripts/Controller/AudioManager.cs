@@ -38,15 +38,17 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetInt("currentStage", 0);
         Play("MenuScene");
     }
-    public void Play(string name)
+    public AudioSource Play(string name)
     {
         Sound s = Array.Find(sounds, sounds => sounds.name == name);
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + "not found");
-            return;
+            return null;
         }
         s.source.Play();
+
+        return s.source;
     }
 
     public void Stop(string name)
