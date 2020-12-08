@@ -41,9 +41,6 @@ public class SceneController : MonoBehaviour
     public void LoadVersus()
     {
         SceneManager.LoadScene("VersusScene");
-        FindObjectOfType<AudioManager>().StopAll();
-        FindObjectOfType<AudioManager>().Play("VersusScene");
-
     }
 
     public void LoadHowToPlay()
