@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class BattleStoryController : MonoBehaviour
 {
     public BattleState state;
 
+    BattleAnimationController battleAnim;
     public int currentRound = 1;
     public int currentStage;
     Hero playerHero;
@@ -43,8 +45,19 @@ public class BattleStoryController : MonoBehaviour
 
     public SceneController scene;
 
-    void Start()
+    void OnEnable()
     {
+        SceneManager.sceneLoaded += OnLoad;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLoad;
+    }
+
+    void OnLoad(Scene scene, LoadSceneMode mode)
+    {
+        battleAnim = GetComponent<BattleAnimationController>();
         audioFX = gameObject.GetComponent<AudioSource>();
         // Save the current progress of the player
         SetupStage();
@@ -124,7 +137,15 @@ public class BattleStoryController : MonoBehaviour
         playerHUD.SetHUD(playerHero);
         enemyHUD.SetHUD(enemyHero);
 
-        yield return new WaitForSeconds(2f);
+        // INTRO ANIMATION
+
+        battleAnim.PlayFinger();
+        yield return new WaitForSeconds(1f);
+        battleAnim.PlayFight();
+        yield return new WaitForSeconds(1f);
+
+
+        // yield return new WaitForSeconds(2f);
         state = BattleState.PLAYERTURN;
         playerButtons.SetActive(true);
     }
