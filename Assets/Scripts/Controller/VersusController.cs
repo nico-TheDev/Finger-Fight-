@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class VersusController : MonoBehaviour
 {
@@ -10,9 +11,29 @@ public class VersusController : MonoBehaviour
 
     public SceneController scene;
 
+    AudioSource currentAudio;
+
     public Sprite[] characters = new Sprite[3];
-    void Start()
+    void OnEnable()
     {
+        SceneManager.sceneLoaded += OnLoad;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLoad;
+        StopCoroutine("Setup");
+    }
+
+    void OnLoad(Scene scene, LoadSceneMode mode)
+    {
+        FindObjectOfType<AudioManager>().StopAll();
+        currentAudio = FindObjectOfType<AudioManager>().Play("VersusScene");
+        Setup();
+    }
+    void Setup()
+    {
+        print("LOAD BATTLE");
         string[] chars = { "Knight", "Samurai", "Alien" };
         string enemyChar = chars[PlayerPrefs.GetInt("currentStage")];
         string playerChar = PlayerPrefs.GetString("playerChar");
@@ -20,15 +41,17 @@ public class VersusController : MonoBehaviour
         GetCharacter(enemy, enemyChar);
         GetCharacter(player, playerChar);
 
-        StartCoroutine(Battle());
     }
 
-
-    IEnumerator Battle()
+    void Update()
     {
-        yield return new WaitForSeconds(3f);
-        scene.LoadBattle();
+        if (!currentAudio.isPlaying)
+        {
+            scene.LoadBattle();
+
+        }
     }
+
 
     void GetCharacter(Image cur, string character)
     {
