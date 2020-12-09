@@ -96,6 +96,7 @@ public class BattleStoryController : MonoBehaviour
 
     IEnumerator SetupGame()
     {
+        Time.timeScale = 1;
         state = BattleState.SETUP;
         // HIDE BUTTONS
         playerButtons.SetActive(false);
@@ -140,9 +141,8 @@ public class BattleStoryController : MonoBehaviour
         // INTRO ANIMATION
 
         battleAnim.PlayFinger();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         battleAnim.PlayFight();
-        yield return new WaitForSeconds(1f);
 
 
         // yield return new WaitForSeconds(2f);
