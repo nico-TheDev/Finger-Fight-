@@ -45,6 +45,8 @@ public class BattleStoryController : MonoBehaviour
 
     public SceneController scene;
 
+    public GameObject pauseBtn;
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoad;
@@ -143,7 +145,8 @@ public class BattleStoryController : MonoBehaviour
         battleAnim.PlayFinger();
         yield return new WaitForSeconds(1.2f);
         battleAnim.PlayFight();
-
+        yield return new WaitForSeconds(1f);
+        pauseBtn.SetActive(true);
 
         // yield return new WaitForSeconds(2f);
         state = BattleState.PLAYERTURN;
