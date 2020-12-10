@@ -6,13 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ToggleMusic : MonoBehaviour
 {
-    Image icon;
-    bool isSoundsOn = true;
-    public Sprite soundsOn;
-    public Sprite soundsOff;
-
-    Image soundsOffImg;
-
+    Toggle toggle;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoad;
@@ -25,40 +19,35 @@ public class ToggleMusic : MonoBehaviour
 
     void OnLoad(Scene scene, LoadSceneMode mode)
     {
-        if (PlayerPrefs.GetInt("isSoundsOn") == 1)
+        if (PlayerPrefs.GetInt("isMuted") != 1)
         {
-            isSoundsOn = true;
+            toggle.isOn = true;
+
         }
         else
         {
-            isSoundsOn = false;
+            toggle.isOn = false;
 
         }
-        ManageSounds();
     }
 
-
-    void Start()
+    void Awake()
     {
-        icon = GetComponent<Image>();
+        toggle = GetComponent<Toggle>();
     }
+
     public void ManageSounds()
     {
-        if (isSoundsOn)
+        if (toggle.isOn)
         {
 
             AudioListener.volume = 0;
-            icon.sprite = soundsOff;
-            isSoundsOn = false;
-            PlayerPrefs.SetInt("isSoundsOn", 0);
+            PlayerPrefs.SetInt("isMuted", 0);
         }
         else
         {
             AudioListener.volume = 1;
-            icon.sprite = soundsOn;
-            isSoundsOn = true;
-            PlayerPrefs.SetInt("isSoundsOn", 1);
-
+            PlayerPrefs.SetInt("isMuted", 1);
         }
     }
 

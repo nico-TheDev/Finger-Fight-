@@ -242,12 +242,14 @@ public class BattleStoryController : MonoBehaviour
             if (playerHero.currentHealth <= 0)
             {
                 StartCoroutine(AnnounceResult(BattleState.LOST, "YOU LOSE!"));
+                battleAnim.PlayKO();
                 enemyHUD.addRoundWon();
                 break;
             }
             else if (enemyHero.currentHealth <= 0)
             {
                 StartCoroutine(AnnounceResult(BattleState.WON, "YOU WIN!"));
+                battleAnim.PlayKO();
                 playerHUD.addRoundWon();
                 break;
             }
