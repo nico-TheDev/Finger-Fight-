@@ -421,6 +421,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ddceb731fb0279e49b7ef27e3dc52add, type: 3}
   - {fileID: 21300000, guid: f4ff70c46dcf23b468ca9e00c87bb5b4, type: 3}
   scene: {fileID: 1787095836966823694, guid: c82918fe5bf3a29479fd95e21bc2fb4b, type: 3}
+  pauseBtn: {fileID: 218813979}
 --- !u!82 &193038392
 AudioSource:
   m_ObjectHideFlags: 0
@@ -553,7 +554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &218813980
 RectTransform:
   m_ObjectHideFlags: 0
