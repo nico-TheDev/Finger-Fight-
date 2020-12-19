@@ -135,6 +135,11 @@ public class BattleStoryController : MonoBehaviour
             playerHero = playerGO.GetComponent<Hero>();
             enemyHero = enemyGO.GetComponent<Hero>();
         }
+
+
+        // SET DIFFICULTY HERO
+        enemyHero.attackDamage = enemyHero.attackDamage * PlayerPrefs.GetFloat("difficulty");
+
         // MANAGE HUD
 
         playerHUD.SetHUD(playerHero);
@@ -309,8 +314,15 @@ public class BattleStoryController : MonoBehaviour
             enemyHUD.displayRoundWon();
             print("YOU WIN.BATTLE END");
             currentStage += 1;
-            PlayerPrefs.SetInt("currentStage", currentStage);
-            scene.LoadVersus();
+            if (currentStage == 3)
+            {
+                PlayerPrefs.SetString("CutsceneState", "outro");
+                scene.LoadCutscene();
+            }
+            else
+            {
+                scene.LoadVersus();
+            }
         }
         else if (enemyHUD.roundWonCount == 2)
         {
@@ -318,8 +330,15 @@ public class BattleStoryController : MonoBehaviour
             enemyHUD.displayRoundWon();
             print("YOU LOSE.BATTLE END");
             currentStage += 1;
-            PlayerPrefs.SetInt("currentStage", currentStage);
-            scene.LoadVersus();
+            if (currentStage == 3)
+            {
+                PlayerPrefs.SetString("CutsceneState", "outro");
+                scene.LoadCutscene();
+            }
+            else
+            {
+                scene.LoadVersus();
+            }
         }
         else
         {
