@@ -9,7 +9,7 @@ public class Hero : MonoBehaviour
 
     public int maxHealth;
     public int currentHealth;
-    public int attackDamage;
+    public float attackDamage;
     public float critRate;
     public float critDamage;
 
