@@ -10,10 +10,13 @@ public class CutSceneController : MonoBehaviour
     public Sprite[] introStory = new Sprite[3];
     public Sprite[] outroStory = new Sprite[3];
 
-    public Button button;
+    string currentState;
+    string playerChar;
 
-    public GameObject Continue;
-
+    public Button storyBtn;
+    public GameObject continueBtn;
+    public GameObject menuBtn;
+    Image btnImage;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoad;
@@ -26,6 +29,16 @@ public class CutSceneController : MonoBehaviour
 
     void OnLoad(Scene scene, LoadSceneMode mode)
     {
+        btnImage = storyBtn.GetComponent<Image>();
+        menuBtn.SetActive(false);
+        currentState = PlayerPrefs.GetString("CutsceneState");
+
+        if (currentState == "outro")
+        {
+            storyBtn.enabled = false;
+            menuBtn.SetActive(true);
+            continueBtn.SetActive(false);
+        }
         Setup();
     }
     void Setup()
@@ -33,9 +46,8 @@ public class CutSceneController : MonoBehaviour
         // Alien 
         // Knight
         // Samurai
-        Image btnImage = button.GetComponent<Image>();
-        string currentState = PlayerPrefs.GetString("CutsceneState");
-        string playerChar = PlayerPrefs.GetString("playerChar");
+        currentState = PlayerPrefs.GetString("CutsceneState");
+        playerChar = PlayerPrefs.GetString("playerChar");
 
         if (currentState == "intro")
         {
