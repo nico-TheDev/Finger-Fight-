@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 9199f0359075f7546a099bc7792cf5f7
+guid: ac176f391d319da4e913a868ee6b502a
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -833241676973669817
+    second: Knight Panel_0
+  - first:
+      213: 537234178754472602
+    second: Knight Panel_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,7 +103,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Knight Panel_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 579
+        height: 1125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7420fe70c1bbf64f0800000000000000
+      internalID: -833241676973669817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight Panel_1
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 579
+        height: 1125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9aebd1a3a3a47700800000000000000
+      internalID: 537234178754472602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
