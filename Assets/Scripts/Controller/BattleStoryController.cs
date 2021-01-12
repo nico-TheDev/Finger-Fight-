@@ -16,6 +16,8 @@ public class BattleStoryController : MonoBehaviour
     Hero playerHero;
     Hero enemyHero;
 
+    MoverScript playerMover;
+    MoverScript enemyMover;
     public GameObject[] playerPrefab = new GameObject[3];
     public GameObject[] enemyPrefab = new GameObject[3];
 
@@ -26,6 +28,9 @@ public class BattleStoryController : MonoBehaviour
     public HUDController enemyHUD;
 
     public GameObject playerButtons;
+
+    public GameObject[] playerButtonArray = new GameObject[3];
+    public GameObject[] enemyButtonArray = new GameObject[3];
     public GameObject enemyButtons;
 
     GameObject playerGO;
@@ -202,35 +207,90 @@ public class BattleStoryController : MonoBehaviour
         }
     }
 
+    IEnumerator StartMovementAnim(int playerCount, int btnCount)
+    {
+        playerMover = playerButtonArray[playerCount].GetComponent<MoverScript>();
+        playerMover.MoveToCenter();
+        enemyMover = enemyButtonArray[btnCount].GetComponent<MoverScript>();
+        enemyMover.MoveToCenter();
+        yield return new WaitForSeconds(0.5f);
+        playerMover.Spin();
+        enemyMover.Spin();
+        yield return new WaitForSeconds(0.5f);
+        playerMover.MoveToOrigin();
+        enemyMover.MoveToOrigin();
+        yield return new WaitForSeconds(0.5f);
+        playerMover.Spin();
+        enemyMover.Spin();
+        yield return new WaitForSeconds(0.5f);
+    }
 
     IEnumerator StandOff()
     {
         state = BattleState.STANDOFF;
-        yield return new WaitForSeconds(2f);
-
+        playerButtons.SetActive(true);
+        enemyButtons.SetActive(true);
         for (int i = 0; i < 3; i++)
         {
             string player = playerMoves[i];
             string enemy = enemyMoves[i];
-
-
+            // Rock => SCcissors => Paper
             if (player == "Scissors")
             {
-                if (enemy == "Scissors") BothDamage(50);
-                else if (enemy == "Rock") TwentyDamage(enemyHero, playerHero.GetDamage(0.2f));
-                else if (enemy == "Paper") FullDamage(enemyHero, playerHero.GetDamage());
+                if (enemy == "Scissors")
+                {
+                    StartCoroutine(StartMovementAnim(1, 1));
+                    BothDamage(50);
+                }
+                else if (enemy == "Rock")
+                {
+                    StartCoroutine(StartMovementAnim(1, 0));
+                    TwentyDamage(enemyHero, playerHero.GetDamage(0.2f));
+                }
+                else if (enemy == "Paper")
+                {
+                    StartCoroutine(StartMovementAnim(1, 2));
+                    FullDamage(enemyHero, playerHero.GetDamage());
+                }
             }
             else if (player == "Rock")
             {
-                if (enemy == "Scissors") TwentyDamage(playerHero, enemyHero.GetDamage(0.2f));
-                else if (enemy == "Rock") print("DRAW");
-                else if (enemy == "Paper") FullDamage(playerHero, enemyHero.GetDamage());
+                playerMover = playerButtonArray[0].GetComponent<MoverScript>();
+                if (enemy == "Scissors")
+                {
+                    StartCoroutine(StartMovementAnim(0, 1));
+
+                    TwentyDamage(playerHero, enemyHero.GetDamage(0.2f));
+                }
+                else if (enemy == "Rock")
+                {
+                    StartCoroutine(StartMovementAnim(0, 0));
+                    print("DRAW");
+                }
+                else if (enemy == "Paper")
+                {
+                    StartCoroutine(StartMovementAnim(0, 2));
+                    FullDamage(playerHero, enemyHero.GetDamage());
+                }
             }
             else if (player == "Paper")
             {
-                if (enemy == "Scissors") FullDamage(playerHero, enemyHero.GetDamage());
-                else if (enemy == "Rock") FullDamage(enemyHero, playerHero.GetDamage());
-                else if (enemy == "Paper") print("DRAW");
+                playerMover = playerButtonArray[2].GetComponent<MoverScript>();
+                if (enemy == "Scissors")
+                {
+                    StartCoroutine(StartMovementAnim(2, 2));
+                    FullDamage(playerHero, enemyHero.GetDamage());
+                }
+                else if (enemy == "Rock")
+                {
+                    StartCoroutine(StartMovementAnim(2, 1));
+                    FullDamage(enemyHero, playerHero.GetDamage());
+                }
+                else if (enemy == "Paper")
+                {
+                    StartCoroutine(StartMovementAnim(2, 0));
+                    print("DRAW");
+                }
             }
 
 
