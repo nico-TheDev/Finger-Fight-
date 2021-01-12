@@ -405,6 +405,14 @@ MonoBehaviour:
   playerHUD: {fileID: 1216497390}
   enemyHUD: {fileID: 1648212109}
   playerButtons: {fileID: 152189553}
+  playerButtonArray:
+  - {fileID: 652108513}
+  - {fileID: 1780676562}
+  - {fileID: 1759240296}
+  enemyButtonArray:
+  - {fileID: 238426536}
+  - {fileID: 1222443856}
+  - {fileID: 880196129}
   enemyButtons: {fileID: 1050841052}
   playerMoves:
   - 
@@ -680,6 +688,7 @@ GameObject:
   - component: {fileID: 238426543}
   - component: {fileID: 238426542}
   - component: {fileID: 238426541}
+  - component: {fileID: 238426544}
   m_Layer: 5
   m_Name: RockButton
   m_TagString: Rock
@@ -921,6 +930,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &238426544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238426536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25f6d4f9e2c8164b92c9dea1fb5f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: 2
+  targetY: 0
+  RotateSpeed: 10000
 --- !u!1 &312375096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,25 +1840,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &652108521
-Animator:
-  serializedVersion: 3
+--- !u!114 &652108521
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652108513}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6e15f56e088730544aea5604f8bef724, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25f6d4f9e2c8164b92c9dea1fb5f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: -2
+  targetY: 0
+  RotateSpeed: 10000
 --- !u!1 &664700897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2004,7 +2024,7 @@ GameObject:
   - component: {fileID: 880196136}
   - component: {fileID: 880196135}
   - component: {fileID: 880196134}
-  - component: {fileID: 880196137}
+  - component: {fileID: 880196138}
   m_Layer: 5
   m_Name: PaperButton
   m_TagString: Paper
@@ -2246,25 +2266,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &880196137
-Animator:
-  serializedVersion: 3
+--- !u!114 &880196138
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880196129}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cfad779a14391eb46b3e52b9d9d0d243, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25f6d4f9e2c8164b92c9dea1fb5f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: 2
+  targetY: 0
+  RotateSpeed: 10000
 --- !u!1 &904112727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2634,6 +2650,7 @@ GameObject:
   - component: {fileID: 1222443863}
   - component: {fileID: 1222443862}
   - component: {fileID: 1222443861}
+  - component: {fileID: 1222443864}
   m_Layer: 5
   m_Name: ScissorButton
   m_TagString: Scissors
@@ -2875,6 +2892,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1222443864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222443856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25f6d4f9e2c8164b92c9dea1fb5f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: 2
+  targetY: 0
+  RotateSpeed: 10000
 --- !u!1 &1247563588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,6 +3643,7 @@ GameObject:
   - component: {fileID: 1759240303}
   - component: {fileID: 1759240302}
   - component: {fileID: 1759240301}
+  - component: {fileID: 1759240304}
   m_Layer: 5
   m_Name: PaperButton
   m_TagString: Paper
@@ -3867,6 +3900,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1759240304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759240296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25f6d4f9e2c8164b92c9dea1fb5f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: -2
+  targetY: 0
+  RotateSpeed: 10000
 --- !u!1 &1780676562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3882,6 +3930,7 @@ GameObject:
   - component: {fileID: 1780676569}
   - component: {fileID: 1780676568}
   - component: {fileID: 1780676567}
+  - component: {fileID: 1780676570}
   m_Layer: 5
   m_Name: ScissorButton
   m_TagString: Scissors
@@ -4138,6 +4187,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1780676570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780676562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25f6d4f9e2c8164b92c9dea1fb5f70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetX: -2
+  targetY: 0
+  RotateSpeed: 10000
 --- !u!1 &1793948401
 GameObject:
   m_ObjectHideFlags: 0
