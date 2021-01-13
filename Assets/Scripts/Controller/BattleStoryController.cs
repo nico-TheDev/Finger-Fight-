@@ -239,17 +239,56 @@ public class BattleStoryController : MonoBehaviour
             {
                 if (enemy == "Scissors")
                 {
-                    StartCoroutine(StartMovementAnim(1, 1));
+                    playerMover = playerButtonArray[1].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[1].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
                     BothDamage(50);
                 }
                 else if (enemy == "Rock")
                 {
-                    StartCoroutine(StartMovementAnim(1, 0));
+                    playerMover = playerButtonArray[1].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[0].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
                     TwentyDamage(enemyHero, playerHero.GetDamage(0.2f));
                 }
                 else if (enemy == "Paper")
                 {
-                    StartCoroutine(StartMovementAnim(1, 2));
+                    playerMover = playerButtonArray[1].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[2].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
                     FullDamage(enemyHero, playerHero.GetDamage());
                 }
             }
@@ -258,19 +297,55 @@ public class BattleStoryController : MonoBehaviour
                 playerMover = playerButtonArray[0].GetComponent<MoverScript>();
                 if (enemy == "Scissors")
                 {
-                    StartCoroutine(StartMovementAnim(0, 1));
-
+                    playerMover = playerButtonArray[0].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[1].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
                     TwentyDamage(playerHero, enemyHero.GetDamage(0.2f));
                 }
                 else if (enemy == "Rock")
                 {
-                    StartCoroutine(StartMovementAnim(0, 0));
-                    print("DRAW");
+                    playerMover = playerButtonArray[0].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[0].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f); print("DRAW");
                 }
                 else if (enemy == "Paper")
                 {
-                    StartCoroutine(StartMovementAnim(0, 2));
-                    FullDamage(playerHero, enemyHero.GetDamage());
+                    playerMover = playerButtonArray[0].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[2].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f); FullDamage(playerHero, enemyHero.GetDamage());
                 }
             }
             else if (player == "Paper")
@@ -278,18 +353,54 @@ public class BattleStoryController : MonoBehaviour
                 playerMover = playerButtonArray[2].GetComponent<MoverScript>();
                 if (enemy == "Scissors")
                 {
-                    StartCoroutine(StartMovementAnim(2, 2));
-                    FullDamage(playerHero, enemyHero.GetDamage());
+                    playerMover = playerButtonArray[2].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[2].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f); FullDamage(playerHero, enemyHero.GetDamage());
                 }
                 else if (enemy == "Rock")
                 {
-                    StartCoroutine(StartMovementAnim(2, 1));
-                    FullDamage(enemyHero, playerHero.GetDamage());
+                    playerMover = playerButtonArray[2].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[1].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f); FullDamage(enemyHero, playerHero.GetDamage());
                 }
                 else if (enemy == "Paper")
                 {
-                    StartCoroutine(StartMovementAnim(2, 0));
-                    print("DRAW");
+                    playerMover = playerButtonArray[2].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
+                    enemyMover = enemyButtonArray[0].GetComponent<MoverScript>();
+                    enemyMover.MoveToCenter();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.MoveToOrigin();
+                    enemyMover.MoveToOrigin();
+                    yield return new WaitForSeconds(0.5f);
+                    playerMover.Spin();
+                    enemyMover.Spin();
+                    yield return new WaitForSeconds(0.5f); print("DRAW");
                 }
             }
 
