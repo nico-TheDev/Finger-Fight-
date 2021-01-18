@@ -162,7 +162,6 @@ public class BattleStoryController : MonoBehaviour
         state = BattleState.PLAYERTURN;
         playerButtons.SetActive(true);
     }
-
     public void HandleClick()
     {
         StartCoroutine(Click());
@@ -182,6 +181,7 @@ public class BattleStoryController : MonoBehaviour
                 state = BattleState.ENEMYTURN;
                 yield return new WaitForSeconds(0.5f);
                 playerButtons.SetActive(false);
+                enemyButtons.SetActive(false);
                 playerTurnCount = 0;
                 StartCoroutine(GetEnemyMoves());
             }
@@ -207,24 +207,6 @@ public class BattleStoryController : MonoBehaviour
         }
     }
 
-    IEnumerator StartMovementAnim(int playerCount, int btnCount)
-    {
-        playerMover = playerButtonArray[playerCount].GetComponent<MoverScript>();
-        playerMover.MoveToCenter();
-        enemyMover = enemyButtonArray[btnCount].GetComponent<MoverScript>();
-        enemyMover.MoveToCenter();
-        yield return new WaitForSeconds(0.5f);
-        playerMover.Spin();
-        enemyMover.Spin();
-        yield return new WaitForSeconds(0.5f);
-        playerMover.MoveToOrigin();
-        enemyMover.MoveToOrigin();
-        yield return new WaitForSeconds(0.5f);
-        playerMover.Spin();
-        enemyMover.Spin();
-        yield return new WaitForSeconds(0.5f);
-    }
-
     IEnumerator StandOff()
     {
         state = BattleState.STANDOFF;
@@ -240,54 +222,80 @@ public class BattleStoryController : MonoBehaviour
                 if (enemy == "Scissors")
                 {
                     playerMover = playerButtonArray[1].GetComponent<MoverScript>();
-                    playerMover.MoveToCenter();
                     enemyMover = enemyButtonArray[1].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
                     enemyMover.MoveToCenter();
-                    yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
+                    yield return new WaitForSeconds(0.5f); // stop spinning
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f); // halt
+                    playerMover.Grow();
+                    enemyMover.Grow();
+                    yield return new WaitForSeconds(1f); // halt
+                    playerMover.Shrink();
+                    enemyMover.Shrink();
+                    yield return new WaitForSeconds(1f); // pause before moving
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(0.5f); // insert animation here
                     BothDamage(50);
                 }
                 else if (enemy == "Rock")
                 {
                     playerMover = playerButtonArray[1].GetComponent<MoverScript>();
-                    playerMover.MoveToCenter();
                     enemyMover = enemyButtonArray[0].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
                     enemyMover.MoveToCenter();
+                    playerMover.SpinOn(); // on spin
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff(); // turn off spin
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f);
+                    enemyMover.Grow();
+                    yield return new WaitForSeconds(1f);
+                    enemyMover.Shrink();
+                    enemyMover.SpinOn(); // turn on spin
+                    playerMover.SpinOn();
+                    yield return new WaitForSeconds(1f);
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
                     TwentyDamage(enemyHero, playerHero.GetDamage(0.2f));
                 }
                 else if (enemy == "Paper")
                 {
                     playerMover = playerButtonArray[1].GetComponent<MoverScript>();
-                    playerMover.MoveToCenter();
                     enemyMover = enemyButtonArray[2].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
                     enemyMover.MoveToCenter();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.Grow();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.Shrink();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
+                    yield return new WaitForSeconds(1f);
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
                     FullDamage(enemyHero, playerHero.GetDamage());
                 }
@@ -298,54 +306,82 @@ public class BattleStoryController : MonoBehaviour
                 if (enemy == "Scissors")
                 {
                     playerMover = playerButtonArray[0].GetComponent<MoverScript>();
-                    playerMover.MoveToCenter();
                     enemyMover = enemyButtonArray[1].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
                     enemyMover.MoveToCenter();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.Grow();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.Shrink();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
                     TwentyDamage(playerHero, enemyHero.GetDamage(0.2f));
                 }
                 else if (enemy == "Rock")
                 {
                     playerMover = playerButtonArray[0].GetComponent<MoverScript>();
-                    playerMover.MoveToCenter();
                     enemyMover = enemyButtonArray[0].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
                     enemyMover.MoveToCenter();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f); // halt
+                    playerMover.Grow();
+                    enemyMover.Grow();
+                    yield return new WaitForSeconds(1f); // halt
+                    playerMover.Shrink();
+                    enemyMover.Shrink();
+                    yield return new WaitForSeconds(1f); // pause before moving
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f); print("DRAW");
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(0.5f);
+                    print("DRAW");
                 }
                 else if (enemy == "Paper")
                 {
                     playerMover = playerButtonArray[0].GetComponent<MoverScript>();
-                    playerMover.MoveToCenter();
                     enemyMover = enemyButtonArray[2].GetComponent<MoverScript>();
+                    playerMover.MoveToCenter();
                     enemyMover.MoveToCenter();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f); // halt
+                    enemyMover.Grow();
+                    yield return new WaitForSeconds(1f); // halt
+                    enemyMover.Shrink();
+                    yield return new WaitForSeconds(1f); // pause before moving
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f); FullDamage(playerHero, enemyHero.GetDamage());
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(0.5f);
+                    FullDamage(playerHero, enemyHero.GetDamage());
                 }
             }
             else if (player == "Paper")
@@ -354,52 +390,80 @@ public class BattleStoryController : MonoBehaviour
                 if (enemy == "Scissors")
                 {
                     playerMover = playerButtonArray[2].GetComponent<MoverScript>();
+                    enemyMover = enemyButtonArray[1].GetComponent<MoverScript>();
                     playerMover.MoveToCenter();
-                    enemyMover = enemyButtonArray[2].GetComponent<MoverScript>();
                     enemyMover.MoveToCenter();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f); // halt
+                    enemyMover.Grow();
+                    yield return new WaitForSeconds(1f); // halt
+                    enemyMover.Shrink();
+                    yield return new WaitForSeconds(1f); // pause before moving
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f); FullDamage(playerHero, enemyHero.GetDamage());
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(0.5f);
+                    FullDamage(playerHero, enemyHero.GetDamage());
                 }
                 else if (enemy == "Rock")
                 {
                     playerMover = playerButtonArray[2].GetComponent<MoverScript>();
-                    playerMover.MoveToCenter();
-                    enemyMover = enemyButtonArray[1].GetComponent<MoverScript>();
+                    enemyMover = enemyButtonArray[0].GetComponent<MoverScript>();
                     enemyMover.MoveToCenter();
+                    playerMover.MoveToCenter();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.Grow();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.Shrink();
+                    yield return new WaitForSeconds(1f);
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f); FullDamage(enemyHero, playerHero.GetDamage());
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(0.5f);
+                    FullDamage(enemyHero, playerHero.GetDamage());
                 }
                 else if (enemy == "Paper")
                 {
                     playerMover = playerButtonArray[2].GetComponent<MoverScript>();
+                    enemyMover = enemyButtonArray[2].GetComponent<MoverScript>();
                     playerMover.MoveToCenter();
-                    enemyMover = enemyButtonArray[0].GetComponent<MoverScript>();
                     enemyMover.MoveToCenter();
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
-                    yield return new WaitForSeconds(0.5f);
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
+                    yield return new WaitForSeconds(1f); // halt
+                    playerMover.Grow();
+                    enemyMover.Grow();
+                    yield return new WaitForSeconds(1f); // halt
+                    playerMover.Shrink();
+                    enemyMover.Shrink();
+                    yield return new WaitForSeconds(1f); // pause before moving
+                    playerMover.SpinOn();
+                    enemyMover.SpinOn();
                     playerMover.MoveToOrigin();
                     enemyMover.MoveToOrigin();
                     yield return new WaitForSeconds(0.5f);
-                    playerMover.Spin();
-                    enemyMover.Spin();
+                    playerMover.SpinOff();
+                    enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f); print("DRAW");
                 }
             }
