@@ -1,7 +1,61 @@
 fileFormatVersion: 2
 guid: c6e34bf23be139a4d829d02c63557336
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5805983468786139927
+    second: RPS Icon Move Effect_0
+  - first:
+      213: -4219945074823184034
+    second: RPS Icon Move Effect_1
+  - first:
+      213: 3623951544625220612
+    second: RPS Icon Move Effect_2
+  - first:
+      213: -7324620136871361786
+    second: RPS Icon Move Effect_3
+  - first:
+      213: -795272400191502611
+    second: RPS Icon Move Effect_4
+  - first:
+      213: -4684996780487693163
+    second: RPS Icon Move Effect_5
+  - first:
+      213: 5985183189687059768
+    second: RPS Icon Move Effect_6
+  - first:
+      213: 8623808687692429065
+    second: RPS Icon Move Effect_7
+  - first:
+      213: 2774464149320995052
+    second: RPS Icon Move Effect_8
+  - first:
+      213: 1945830783306441268
+    second: RPS Icon Move Effect_9
+  - first:
+      213: -4138136617559595418
+    second: RPS Icon Move Effect_10
+  - first:
+      213: -3485247896898918528
+    second: RPS Icon Move Effect_11
+  - first:
+      213: -2210496025902010304
+    second: RPS Icon Move Effect_12
+  - first:
+      213: 4864758988074246449
+    second: RPS Icon Move Effect_13
+  - first:
+      213: 4767701172356433886
+    second: RPS Icon Move Effect_14
+  - first:
+      213: -4384559167972807493
+    second: RPS Icon Move Effect_15
+  - first:
+      213: 355794803394170476
+    second: RPS Icon Move Effect_16
+  - first:
+      213: 6125494127691763684
+    second: RPS Icon Move Effect_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +94,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,9 +125,411 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_0
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 555
+        width: 30
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713c9c4143ff29050800000000000000
+      internalID: 5805983468786139927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_1
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 535
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51418b005ebf65c0800000000000000
+      internalID: -4219945074823184034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_2
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 535
+        width: 65
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c4d94babcda4230800000000000000
+      internalID: 3623951544625220612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_3
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 455
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6030c130bc8b95a90800000000000000
+      internalID: -7324620136871361786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 445
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de6c9ee27ff96f4f0800000000000000
+      internalID: -795272400191502611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 355
+        width: 65
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59cae25104c8bfeb0800000000000000
+      internalID: -4684996780487693163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_6
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 345
+        width: 95
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835cfe07664af0350800000000000000
+      internalID: 5985183189687059768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 380
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 907b5d08f4ceda770800000000000000
+      internalID: 8623808687692429065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_8
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 345
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0955ea170e08620800000000000000
+      internalID: 2774464149320995052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_9
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 345
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4322008b9caf00b10800000000000000
+      internalID: 1945830783306441268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 185
+        width: 110
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666e25ecba26296c0800000000000000
+      internalID: -4138136617559595418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 295
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087a92fd089e1afc0800000000000000
+      internalID: -3485247896898918528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_12
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 285
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040b2be739db251e0800000000000000
+      internalID: -2210496025902010304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_13
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 185
+        width: 95
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131ed0a6688138340800000000000000
+      internalID: 4864758988074246449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_14
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 220
+        width: 95
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed7c485b4f64a2240800000000000000
+      internalID: 4767701172356433886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_15
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 185
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc6c48caaae623c0800000000000000
+      internalID: -4384559167972807493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_16
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 185
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e4d351d7900f400800000000000000
+      internalID: 355794803394170476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPS Icon Move Effect_17
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 25
+        width: 110
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ef0fc27470220550800000000000000
+      internalID: 6125494127691763684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
