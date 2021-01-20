@@ -52,6 +52,9 @@ public class BattleStoryController : MonoBehaviour
 
     public GameObject pauseBtn;
 
+    public GameObject playerSlash;
+    public GameObject enemySlash;
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoad;
@@ -114,6 +117,11 @@ public class BattleStoryController : MonoBehaviour
         string enemyChar = PlayerPrefs.GetString("enemyChar");
         int playerIndex = 0;
         int enemyIndex = 0;
+
+        // SETUP SLASH
+
+        playerSlash.SetActive(false);
+        enemySlash.SetActive(false);
 
         for (int i = 0; i < 3; i++)
         {
@@ -245,6 +253,12 @@ public class BattleStoryController : MonoBehaviour
                     playerMover.SpinOff();
                     enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f); // insert animation here
+                    playerSlash.SetActive(true);
+                    enemySlash.SetActive(true);
+                    yield return new WaitForSeconds(0.5f); // insert animation here
+                    playerSlash.SetActive(false);
+                    enemySlash.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("Critical");
                     BothDamage(50);
                 }
                 else if (enemy == "Rock")
@@ -271,6 +285,10 @@ public class BattleStoryController : MonoBehaviour
                     playerMover.SpinOff();
                     enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
+                    enemySlash.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                    enemySlash.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("Critical");
                     TwentyDamage(enemyHero, playerHero.GetDamage(0.2f));
                 }
                 else if (enemy == "Paper")
@@ -297,6 +315,10 @@ public class BattleStoryController : MonoBehaviour
                     playerMover.SpinOff();
                     enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
+                    enemySlash.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                    enemySlash.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("Critical");
                     FullDamage(enemyHero, playerHero.GetDamage());
                 }
             }
@@ -327,6 +349,10 @@ public class BattleStoryController : MonoBehaviour
                     playerMover.SpinOff();
                     enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
+                    playerSlash.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                    playerSlash.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("Critical");
                     TwentyDamage(playerHero, enemyHero.GetDamage(0.2f));
                 }
                 else if (enemy == "Rock")
@@ -381,6 +407,10 @@ public class BattleStoryController : MonoBehaviour
                     playerMover.SpinOff();
                     enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
+                    playerSlash.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                    playerSlash.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("Critical");
                     FullDamage(playerHero, enemyHero.GetDamage());
                 }
             }
@@ -411,6 +441,10 @@ public class BattleStoryController : MonoBehaviour
                     playerMover.SpinOff();
                     enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
+                    playerSlash.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                    playerSlash.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("Critical");
                     FullDamage(playerHero, enemyHero.GetDamage());
                 }
                 else if (enemy == "Rock")
@@ -437,6 +471,10 @@ public class BattleStoryController : MonoBehaviour
                     playerMover.SpinOff();
                     enemyMover.SpinOff();
                     yield return new WaitForSeconds(0.5f);
+                    enemySlash.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                    enemySlash.SetActive(false);
+                    FindObjectOfType<AudioManager>().Play("Critical");
                     FullDamage(enemyHero, playerHero.GetDamage());
                 }
                 else if (enemy == "Paper")
@@ -468,10 +506,6 @@ public class BattleStoryController : MonoBehaviour
                 }
             }
 
-
-            // SHOW ANIMATION OF CLASHING 
-
-            // ANNOUNCE WHAT HAPPENED
 
             // UPDATE HUD
             print($"{player} VS {enemy}");
@@ -581,6 +615,7 @@ public class BattleStoryController : MonoBehaviour
             enemyHUD.displayRoundWon();
             StartCoroutine(SetupGame());
         }
+        PlayerPrefs.SetInt("currentStage", currentStage);
     }
 }
 
