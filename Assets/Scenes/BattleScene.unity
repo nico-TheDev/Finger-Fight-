@@ -433,6 +433,10 @@ MonoBehaviour:
   pauseBtn: {fileID: 218813979}
   playerSlash: {fileID: 603919667}
   enemySlash: {fileID: 193821822}
+  introObj:
+  - {fileID: 499336594}
+  - {fileID: 1315822045}
+  - {fileID: 1437621656}
 --- !u!82 &193038392
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1289,7 +1293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &499336595
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3228,7 +3232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1315822046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3482,7 +3486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1437621657
 RectTransform:
   m_ObjectHideFlags: 0

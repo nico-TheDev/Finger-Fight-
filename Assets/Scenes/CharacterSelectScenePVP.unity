@@ -408,8 +408,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SelectCharacter
+      - m_Target: {fileID: 964190240}
+        m_MethodName: AssignCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -672,7 +672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 40}
+  m_AnchoredPosition: {x: 0, y: 53}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506419284
@@ -1075,8 +1075,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SelectCharacter
+      - m_Target: {fileID: 964190240}
+        m_MethodName: AssignCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1260,84 +1260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickFx: {fileID: 8300000, guid: 9fcb42598b5e0354db5cc610d0291848, type: 3}
---- !u!1 &729918852
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 729918853}
-  - component: {fileID: 729918855}
-  - component: {fileID: 729918854}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &729918853
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729918852}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1192330752}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &729918854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729918852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: d67e9a017a09150489547bfcbab49d56, type: 3}
-    m_FontSize: 15
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Confirm
---- !u!222 &729918855
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729918852}
-  m_CullTransparentMesh: 0
 --- !u!1 &943871259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,10 +1364,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   announcerText: {fileID: 506419284}
+  confirmBtn: {fileID: 1192330751}
+  fightBtn: {fileID: 1579886023}
   charArt:
   - {fileID: -1765682380817045699, guid: 83eeb3f39fd52f14ba8c7497a252d448, type: 3}
   - {fileID: -7541836658035233454, guid: d1eca9c5d8d327b4189bac2233e2f745, type: 3}
   - {fileID: 5322809345770266708, guid: a6837f7a2de17754f8ad409a8a7d3ad0, type: 3}
+  playerOne: {fileID: 223117784}
+  playerTwo: {fileID: 398934956}
 --- !u!4 &964190241
 Transform:
   m_ObjectHideFlags: 0
@@ -1571,15 +1497,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 729918853}
+  m_Children: []
   m_Father: {fileID: 1938283221}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 114, y: 58}
-  m_SizeDelta: {x: 139.89807, y: 65.57721}
+  m_SizeDelta: {x: 146.1654, y: 50.244354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1192330753
 MonoBehaviour:
@@ -1746,10 +1671,12 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: -2172926810176206955, guid: d3435b5862205fb4781f77bcc55f1509,
+    m_HighlightedSprite: {fileID: 334103229360650137, guid: 84d5b380de51b004e9d108597e6455af,
       type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 334103229360650137, guid: 84d5b380de51b004e9d108597e6455af,
+      type: 3}
+    m_SelectedSprite: {fileID: 334103229360650137, guid: 84d5b380de51b004e9d108597e6455af,
+      type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1762,9 +1689,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1787095836966823694, guid: c82918fe5bf3a29479fd95e21bc2fb4b,
-          type: 3}
-        m_MethodName: LoadCutscene
+      - m_Target: {fileID: 964190240}
+        m_MethodName: ConfirmChoice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1793,7 +1719,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -793151769763205453, guid: 84d5b380de51b004e9d108597e6455af,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1898,7 +1825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1579886024
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2344,8 +2271,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SelectCharacter
+      - m_Target: {fileID: 964190240}
+        m_MethodName: AssignCharacter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
