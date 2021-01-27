@@ -19,6 +19,7 @@ public class ToggleMusic : MonoBehaviour
 
     void OnLoad(Scene scene, LoadSceneMode mode)
     {
+
         if (PlayerPrefs.GetInt("isMuted") != 1)
         {
             toggle.isOn = true;

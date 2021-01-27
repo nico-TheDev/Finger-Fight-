@@ -15,17 +15,26 @@ EditorBuildSettings:
     path: Assets/Scenes/HowToPlayScene.unity
     guid: bba6d14ab80419f478acae372cf1f7e5
   - enabled: 1
-    path: Assets/Scenes/BattleScenePVP.unity
-    guid: 886ba449d94cfda45a2cdcc4adc53f14
-  - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BattleScenePVP.unity
+    guid: 101ac39b186374448937a7dc6913b9f8
   - enabled: 1
     path: Assets/Scenes/StoryScene.unity
     guid: 58d6ab5b9b85b004fb2a2962aa93f1b6
   - enabled: 1
     path: Assets/Scenes/VersusScene.unity
     guid: 80cd99ae0f844134e9fd0ea122efbbbe
+  - enabled: 1
+    path: Assets/Scenes/VersusScenePVP.unity
+    guid: 6ab4e1864110a984d80fe41918152688
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 1fc236c0f12db8a4cac91d7841f2bcd5
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity
+    guid: 21a531968853710468f72407574eade3
   - enabled: 1
     path: Assets/Scenes/CharacterSelectScenePVP.unity
     guid: d19ae6da78b3bac40ae21d6e3b9a97e6

@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
-
-public class BattleStoryController : MonoBehaviour
+public class BattleControllerPVP : MonoBehaviour
 {
     public BattleState state;
 
@@ -78,7 +76,7 @@ public class BattleStoryController : MonoBehaviour
 
     void SetupStage()
     {
-        currentStage = PlayerPrefs.GetInt("currentStage");
+        currentStage = 0;
 
         FindObjectOfType<AudioManager>().StopAll();
 
@@ -115,8 +113,8 @@ public class BattleStoryController : MonoBehaviour
         enemyButtons.SetActive(false);
 
         // SETUP PLAYER
-        string playerChar = PlayerPrefs.GetString("playerChar");
-        string enemyChar = PlayerPrefs.GetString("enemyChar");
+        string playerChar = PlayerPrefs.GetString("PlayerOne");
+        string enemyChar = PlayerPrefs.GetString("PlayerTwo");
         int playerIndex = 0;
         int enemyIndex = 0;
 
@@ -198,9 +196,23 @@ public class BattleStoryController : MonoBehaviour
                 state = BattleState.ENEMYTURN;
                 yield return new WaitForSeconds(0.5f);
                 playerButtons.SetActive(false);
-                enemyButtons.SetActive(false);
+                enemyButtons.SetActive(true);
                 playerTurnCount = 0;
-                StartCoroutine(GetEnemyMoves());
+            }
+        }
+        else if (state == BattleState.ENEMYTURN && enemyTurnCount != 3)
+        {
+            enemyMoves[enemyTurnCount] = selectedMove;
+            enemyTurnCount += 1;
+
+            if (enemyTurnCount == 3)
+            {
+                state = BattleState.STANDOFF;
+                yield return new WaitForSeconds(0.5f);
+                playerButtons.SetActive(false);
+                enemyButtons.SetActive(false);
+                enemyTurnCount = 0;
+                StartCoroutine(StandOff());
             }
         }
     }
@@ -596,11 +608,11 @@ public class BattleStoryController : MonoBehaviour
             if (currentStage == 3)
             {
                 PlayerPrefs.SetString("CutsceneState", "outro");
-                scene.LoadCutscene();
+                scene.LoadResultScene();
             }
             else
             {
-                scene.LoadVersus();
+                scene.LoadResultScene();
             }
         }
         else if (enemyHUD.roundWonCount == 2)
@@ -612,11 +624,11 @@ public class BattleStoryController : MonoBehaviour
             if (currentStage == 3)
             {
                 PlayerPrefs.SetString("CutsceneState", "outro");
-                scene.LoadMenu();
+                scene.LoadResultScene();
             }
             else
             {
-                scene.LoadMenu();
+                scene.LoadResultScene();
             }
         }
         else
@@ -628,4 +640,3 @@ public class BattleStoryController : MonoBehaviour
         PlayerPrefs.SetInt("currentStage", currentStage);
     }
 }
-

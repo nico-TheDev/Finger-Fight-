@@ -24,6 +24,8 @@ public class SceneController : MonoBehaviour
     public void LoadSelectPVP()
     {
         SceneManager.LoadScene("CharacterSelectScenePVP");
+        FindObjectOfType<AudioManager>().StopAll();
+        FindObjectOfType<AudioManager>().Play("CharacterSelectScene");
     }
     public void LoadBattle()
     {
@@ -38,9 +40,17 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("StoryScene");
     }
 
+    public void LoadResultScene()
+    {
+        SceneManager.LoadScene("ResultScene");
+    }
     public void LoadVersus()
     {
         SceneManager.LoadScene("VersusScene");
+    }
+    public void LoadVersusPVP()
+    {
+        SceneManager.LoadScene("VersusScenePVP");
     }
 
     public void LoadHowToPlay()
@@ -66,6 +76,12 @@ public class SceneController : MonoBehaviour
         {
             character.SetActive(true);
         }
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits");
+
     }
 
     public void QuitGame()

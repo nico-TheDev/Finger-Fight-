@@ -272,7 +272,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7541836658035233454, guid: d1eca9c5d8d327b4189bac2233e2f745,
+  m_Sprite: {fileID: -1765682380817045699, guid: 83eeb3f39fd52f14ba8c7497a252d448,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -626,7 +626,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7541836658035233454, guid: d1eca9c5d8d327b4189bac2233e2f745,
+  m_Sprite: {fileID: -1765682380817045699, guid: 83eeb3f39fd52f14ba8c7497a252d448,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1891,7 +1891,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1787095836966823694, guid: c82918fe5bf3a29479fd95e21bc2fb4b,
           type: 3}
-        m_MethodName: LoadCutscene
+        m_MethodName: LoadVersusPVP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

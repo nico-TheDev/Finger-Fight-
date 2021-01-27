@@ -35,7 +35,7 @@ public class MoverScript : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
-            Spin();
+            SpinOn();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
@@ -59,11 +59,17 @@ public class MoverScript : MonoBehaviour
         LeanTween.moveY(gameObject, origin.y, 0.4f);
     }
 
-    public void Spin()
+    public void SpinOn()
     {
-        print("Spin");
+        print("Spin On");
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        isRotating = !isRotating;
+        isRotating = true;
+    }
+    public void SpinOff()
+    {
+        print("Spin Off");
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        isRotating = false;
     }
 
     public void Grow()
